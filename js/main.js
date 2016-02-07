@@ -1,3 +1,12 @@
+$(document).ready(function() {
+  
+  $('.carousel').carousel() 
+  
+  
+  
+  
+});
+
 /* Begin by adding your on ready handler here, and then create the
    rest of your functions inside the on ready handler.
 

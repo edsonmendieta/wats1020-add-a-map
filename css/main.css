@@ -5,6 +5,13 @@
 #map-container { height: 180px; }
 
 
+.carousel-inner {
+  width: 100%;
+}
+
+.slide-pic {
+  width: 100%;
+}
 
 
 
