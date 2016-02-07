@@ -1,11 +1,14 @@
-$(document).ready(function() {
+$(document).ready(function(){
   
-  $('.carousel').carousel() 
+  $('a[data-toggle="tab"]').click(function (e) {
+      e.preventDefault();
+      $('a[href="' + $(this).attr('href') + '"]').tab('show');
+  })
   
   
   
   
-});
+
 
 /* Begin by adding your on ready handler here, and then create the
    rest of your functions inside the on ready handler.
@@ -28,3 +31,4 @@ $(document).ready(function() {
 // interesting locations. (You'll need to figure out the latitude/longitude for
 // these locations using a mapping tool such as Google Maps.)
 
+});                                
