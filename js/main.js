@@ -1,31 +1,37 @@
 $(document).ready(function(){
   
-  $('a[data-toggle="tab"]').click(function (e) {
+  
+  
+  	$('a[href^="#"]').on('click',function (e) { //smooth scrolling to internal links
+	    e.preventDefault();
+
+	    var target = this.hash;
+	    var $target = $(target);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top
+	    }, 1500, 'swing', function () {
+	        window.location.hash = target;
+	    });
+	});
+  
+  
+  
+  
+  
+  $('a[data-toggle="tab"]').click(function (e) { //toggles About section tabs from drop-down nav menu at top of page.
       e.preventDefault();
       $('a[href="' + $(this).attr('href') + '"]').tab('show');
   });
   
   
   $(function () {
-  $('[data-toggle="popover"]').popover()
+  $('[data-toggle="popover"]').popover() //activates Bootstrap popover button feature
 });
   
-//   var map = L.map('map').setView([46.8529, 121.7604], 13);
-  
- 
-
- 
-//   var puyallup = L.marker([47.1758, 122.2936]).bindPopup('City of Puyallup. Home of the Puyallup Tribe.'),
-//       tacoma    = L.marker([47.2414, 122.4594]).bindPopup('City of Tacoma. The City of Destiny.'),
-//       mtRainier    = L.marker([46.852, -121.760]).bindPopup('Welcome to Mt. Rainier. This peak is 4,392 feet high.');
-  
-//   var locations = L.layerGroup([puyallup, tacoma, mtRainier]);
-  
-
-
 
   
-var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'; //leaflet layers
 var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttrib});
   
@@ -40,23 +46,23 @@ var drawLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.p
 });
 
 var mapLayers = {
-    "Satellite": satLayer,
     "Map View": drawLayer,
-    "Open Street Maps": osm
+    "Open Street Maps": osm,
+    "Satellite": satLayer
 };
   
   
   
   
-  var map = L.map('map-container').setView([46.852, -121.760], 8)
+  var map = L.map('map-container').setView([46.852, -121.760], 7)
   L.control.layers(mapLayers).addTo(map);
-  satLayer.addTo(map);  
+  drawLayer.addTo(map);  //default layer shown
 
   
   
 
   
- L.marker([46.852, -121.760]).addTo(map)
+ L.marker([46.852, -121.760]).addTo(map) //map markers
     .bindPopup('<b>Welcome to Mt. Rainier!</b><br>This peak is 4,392 feet high.')
     .openPopup();
   
@@ -75,26 +81,5 @@ var mapLayers = {
   
   
 
-
-/* Begin by adding your on ready handler here, and then create the
-   rest of your functions inside the on ready handler.
-
-   (Note that you do not need to manually call Bootstrap functions in
-   your Javascript because Bootstrap will automatically recognize your
-   HTML structures and invoke the proper JS code accordingly. Be sure
-   to reference the Bootstrap documentation.)
-*/
-
-// TODO: Inside of your on ready handler, invoke the Leaflet.js library
-// to draw a map in your `#map-container` div.
-
-// TODO: Add 2 layers to your map you have visuals. Use the Open Street Maps
-// tiles served through the MapQuest CDN. Consult this example to set up
-// the map tiles layers:
-
-
-// TODO: Customize that Map to show markers with popups at no fewer than 3
-// interesting locations. (You'll need to figure out the latitude/longitude for
-// these locations using a mapping tool such as Google Maps.)
 
 });                                

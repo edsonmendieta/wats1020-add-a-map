@@ -2,20 +2,27 @@
    Author's custom styles
    ========================================================================== */
 
+.navbar-inverse { /*keeps top navbar in front of other content, full page width, and at very top of page*/
+  top: 0;
+  z-index: 5;
+  width: 100%;
+}
+
+
 #map-container { height: 180px; }
 
 
-.carousel-inner {
+.carousel-inner { 
   width: 100%;
 }
 
 .slide-pic {
-  width: 100%;
+  width: 100%; /*Makes sure pictures fill "frame"*/
 }
 
 
 
-.stats {
+.stats {  
    display: -webkit-flex;
    display: flex;
    -webkit-flex-direction: column;
@@ -23,57 +30,9 @@
    width: 100%;
 }
 
-#pops {
+#pops { /*sets stat buttons in a vertical arrangement and sets them full width of page*/
   display: flex;
   width: 100%;
   background: #93C54B;
 }
-
-/* #stats {
-  width: 100%;
-}
-
-.stats-list {
-  width: 100%;
-  overflow: hidden;
-  background: #93C54B;
-  padding: 0;
-  margin: 0;
-}
-
-.stat-wrapper {
-}
-
-.color-label {
-  float: left;
-  width: 50%;
-  text-align: center;
-  padding: 0;
-  margin 0;
-  border-bottom: medium solid white;
-/*   border: medium dashed blue; */
-/* } */
-
-/* .data-text {
-  float: left;
-  width: 50%;
-  padding: 0;
-  margin: 0;
-  border-bottom: medium solid white;
-} */
-
-/* .boxed-data {
-/*   border: medium solid green; */
-/* } */
-
-
-
-
-
-
-
-
-
-
-
 
